@@ -53,7 +53,30 @@ cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
 与load相同，但默认为在resources文件夹下。
 
 ### 使用
-可以使用JSON.parse(json)方法将json文件转化为js对象来使用。
+可以使用JSON.parse(json)方法将json文件转化为js对象来使用。目前发现必须先使用JSON.stringify()将json文件转为字符串,再使用JSON.parse(json)来获取对象,否则会报错.
+```
+    onLoad: function () {
+        var url = cc.url.raw( 'resources/json/set.json' );
+        var self = this;
+        cc.loader.load(url,function(err,res){
+            if(err != null){
+                cc.log(err);
+            }else{
+                var a = JSON.stringify(res);
+                self.setjson = JSON.parse(a);
+                cc.log(self.setjson);
+            };
+        });
+    },
+
+    //获取set.json数据
+    //传入的参数a为字符串,是对象的属性名
+    getsetjson: function(a){
+        var b = this.setjson[a];
+        cc.log(b);
+        return b;
+    },
+```
 
 是否能用eval()函数暂未实验。
 
