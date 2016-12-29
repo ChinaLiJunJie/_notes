@@ -41,7 +41,7 @@ var sites = [
 ```javascript
 //将相对url转为绝对url
 var url = cc.url.raw( 'resources/data.json' )
-cc.loader.loadRes( url, function( err, res)
+cc.loader.load( url, function( err, res)
 {
 // 如果有異常會在 err 變數顯示, 否則在res就會是讀進來的json object
 cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
