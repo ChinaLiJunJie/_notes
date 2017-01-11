@@ -30,6 +30,7 @@ var sites = [
 ```
 
 ## 本地json文件的加载
+## V1.0
 以下内容适用于cocoscreator1.3.2版本
 ***
 首先需要在assets文件夹下建立一个resources文件夹
@@ -62,8 +63,9 @@ cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
         if (err != null) {
             cc.log(err);
         } else {
-            var a = JSON.stringify(res);
-            self.setjson = JSON.parse(a);
+            //res已经是json转化的对象
+            //var a = JSON.stringify(res);
+            //self.setjson = JSON.parse(a);
             self.loadend = !0;
             //cc.log(self.setjson);
         };
@@ -72,7 +74,7 @@ cc.log( 'load['+ url +'], err['+err+'] result: ' + JSON.stringify(res));
 ### 读取
 调用此函数,传入参数为需要使用的json文件的属性名或对象名,参数为字符串类型.
 
-由于cocoscreator中loadjson文件很缓慢,所以有可能在你调用json文件数据时json文件还未被加载完成,所以如果为加载完成,则返回空.
+由于cocoscreator中是用动态加载的方式读取json文件,所以有可能在你调用json文件数据时json文件还未被加载完成,所以如果为加载完成,则返回空.
 
 ```javascript
     getsetjson: function (a) {
@@ -105,3 +107,80 @@ if(this.a!=null){};
 * 是否能用eval()函数暂未实验。
 
 * 可以参考json笔记json使用。
+
+## V2.0版本
+### V1.0使用总结和新思路
+
+在上个版本中,使用中发现如果需要读取大量保存在json中的数据,每次声明空变量及并在update中读取会使代码异常繁琐,同时加入update中的代码需要非常谨慎,因为每帧都会调用,会占用游戏性能.
+并且在实验中发现,会导致这种情况出现是由于json文件是通过动态加载来获取的,而动态加载时在所有组件onload执行完毕后最后在执行.我们改不了引擎底层的代码,只能通过其他方式来解决这种情况.
+同时,我决定好好利用cocoscreator的组件化功能,这种模式具有非常高的灵活性,如果代码可扩展,可维护,可复用,将会减少很多重复工作.
+
+### V2.0组件
+
+```javascript
+//
+//  loadJSON.js
+//  V2.0
+//  CocosCreator V1.3.3
+//
+//  Created by 李俊杰 on 17/1/11.
+//  Copyright © 2017年 李俊杰. All rights reserved.
+
+//  用于读取JSON数据的组件
+
+//  !!  目前只支持读取单个json文件
+//  !!  json文件必须放在assets/resources/json目录下
+//  !!  所有组件读取本地文件的操作需要放到该组件的LoadJsonEnd()方法下
+
+//  **  getsetjson(attribute)   参数-json文件中的属性名 返回-该属性对象
+
+cc.Class({
+    extends: cc.Component,
+
+    properties: {
+        JsonName: cc.String,
+        NeedJson: [cc.String],
+    },
+
+    init: function () {
+        this.Json = null;
+        var Jsonstring = "resources/json/" + this.JsonName;
+        var url = cc.url.raw(Jsonstring);
+        var self = this;
+        cc.loader.load(url, function (err, res) {
+            if (err != null) {
+                cc.log(err);
+            } else {
+                self.Json = res;
+                console.log("set.josn load success");
+                console.log(self.Json);
+                self.loadend();
+            };
+        });
+    },
+
+    //获取set.json数据
+    getsetjson: function (a) {
+        var b;
+        b = this.Json[a];
+        console.log("getsetjson:---" + a + ":" + b);
+        return b;
+    },
+
+    //读取json文件结束后初始化
+    loadend: function () {
+        for(var i in this.NeedJson){
+            var a = this.getComponentsInChildren(this.NeedJson[i]);
+            for(var l in a){
+                a[l].LoadJsonEnd();
+            }
+        }
+    }
+});
+```
+
+依旧通过动态加载读取json文件,并提供getsetjson()方法供其他组件获取json数据.
+
+添加了一个函数,当动态加载json文件后自动调用所有加入请求json的LoadJsonEnd();
+
+所以,在需要json文件的组件内,只要写一个LoadJsonEnd()方法,在方法内就能获取到json数据
