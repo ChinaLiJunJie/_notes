@@ -1,9 +1,10 @@
 //
-//  loadJSON.js
+//  Com_loadJSON.js
 //  V2.0
 //  CocosCreator V1.3.3
 //
 //  Created by 李俊杰 on 17/1/11.
+//  Revise by 李俊杰 on 17/2/10.
 //  Copyright © 2017年 李俊杰. All rights reserved.
 
 //  用于读取JSON数据的组件
