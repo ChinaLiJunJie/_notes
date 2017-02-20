@@ -6,19 +6,33 @@
 //  Created by 李俊杰 on 17/2/14.
 //  Copyright © 2017年 李俊杰. All rights reserved.
 
-//  通过安卓进行游戏鉴权操作
+//  通过炫佳安卓平台进行游戏鉴权操作
 
 //  !!  如果未在南京炫佳安卓平台环境下运行本游戏,会无法正常进行游戏
+//  !!  此组件挂载在与canvas平级的空节点下
+//  !!  此组件会使节点变为常驻节点,不会被切换场景所销毁
+//  !!  如果不在公司平台下,游戏会正常运行
+//  !!  需要在游戏的index.html页面下添加两个函数来调用CallBack_authenSuccess()及CallBack_authenFail();
 
-//  **  
+//  **  checkAndroidIsReady(){return true or false}:检测是否在公司平台下运行
+//  **  start_AUC():如果游戏未购买且在平台环境下,则进行鉴权操作
+//  **  exitGame():调用安卓关闭游戏窗口
+
+//  $$  whenSuccess():当鉴权成功后调用,默认为空函数
+//  $$  whenFailFirst():当第一次鉴权失败后调用,默认为空函数
+//  $$  whenFail():当鉴权失败后调用,默认为空函数
+//  $$  skip_AUC():开始鉴权时,如果未在平台下或已购买时调用,默认为空函数
 
 cc.Class({
     extends: cc.Component,
 
     properties: {
+        FreeTime: 30,
     },
 
     onLoad: function () {
+        //使此节点为常驻节点,不会再切换场景时被销毁
+        cc.game.addPersistRootNode(this.node);
         //是否已购买游戏
         this.HavedBuy = false;
         //是否在公司安卓环境下运行
@@ -53,16 +67,15 @@ cc.Class({
         //console.log(this.ISAndroidReady);
         if (this.ISAndroidReady && !this.HavedBuy) {
             androidjs.authenInGame();
+        }else{
+            this.skip_AUC();
         };
     },
 
     //鉴权成功后安卓调用
     authenSuccess: function () {
         this.HavedBuy = true;
-        this.getComponent("GameCon").Zanting.node.active = false;
-        this.getComponent("GameCon").Black.node.active = false;
-        this.getComponent("GameCon").gamestart = true;
-        cc.director.resume();
+        this.whenSuccess();
     },
 
     //鉴权失败后安卓调用
@@ -72,25 +85,13 @@ cc.Class({
             this.scheduleOnce(function () {
                 this.FirstAUC = false;
                 //暂停游戏
-                var self = this.getComponent("GameCon");
-                self.Zanting.node.active = true;
-                self.Black.node.active = true;
-                self.gamestart = false;
-                self.chooseid = 0;
-                self.Zanting.node.getChildByName("kuangzi").x = -70;
-                cc.director.pause();
+                this.whenFailFirst();
                 //订购
                 androidjs.order();
-            }, 30);
+            }, this.FreeTime);
         } else {
             //暂停游戏
-            var self = this.getComponent("GameCon");
-            self.Zanting.node.active = true;
-            self.Black.node.active = true;
-            self.gamestart = false;
-            self.chooseid = 0;
-            self.Zanting.node.getChildByName("kuangzi").x = -70;
-            cc.director.pause();
+            this.whenFail();
             //订购
             androidjs.order();
         };
@@ -104,13 +105,8 @@ cc.Class({
         };
     },
 
-    // CheckHavedBuy() {
-    //     var a = location.href;
-    //     console.log("______");
-    //     console.log(a);
-    //     var n = a.search(/authenResult=/i);
-    //     var m = a[n + 13];
-    //     if (m == "t" || m == "T") {
-    //         this.HavedBuy = true;
-    //     };
+    whenSuccess:function(){},
+    whenFailFirst:function(){},
+    whenFail:function(){},
+    skip_AUC:function(){},
 });
