@@ -17,3 +17,10 @@ npm install multer
 //-- ws
 npm install ws
 ```
+
+```ts
+npm install --save @types/ws
+```
+
+npm升级
+npm install -g npm
