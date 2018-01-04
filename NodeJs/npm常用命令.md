@@ -4,6 +4,7 @@
 
 需要root权限
 
+### 常用包
 
 ```js
 //-- express框架
@@ -19,8 +20,16 @@ npm install ws
 ```
 
 ```ts
-npm install --save @types/ws
+npm install --save-dev @types/ws
 ```
 
-npm升级
+### 常用命令
+
+```bash
+// 升级自己
 npm install -g npm
+// 安装包 -g 全局 --save 添加到package -dev 添加到开发包依赖
+npm install -g sss --save-dev
+// 查看全局安装包列表 -g 全局 --depth 0 显示依赖深度 0 为不显示依赖包
+npm list -g --depth 0
+```
