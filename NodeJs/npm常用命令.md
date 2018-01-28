@@ -32,4 +32,6 @@ npm install -g npm
 npm install -g sss --save-dev
 // 查看全局安装包列表 -g 全局 --depth 0 显示依赖深度 0 为不显示依赖包
 npm list -g --depth 0
+// 查看全局位置
+npm root -g
 ```
