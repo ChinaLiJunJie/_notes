@@ -6,21 +6,14 @@
 
 ### 常用包
 
-```js
-//-- express框架
-npm install express
-//-- node.js 中间件，用于处理 JSON, Raw, Text 和 URL 编码的数据
-npm install body-parser 
-//-- 这就是一个解析Cookie的工具。通过req.cookies可以取到传过来的cookie，并把它们转成对象。
-npm install cookie-parser
-//-- node.js 中间件，用于处理 enctype="multipart/form-data"（设置表单的MIME编码）的表单数据
-npm install multer
-//-- ws
-npm install ws
-```
+```bash
+<!-- 疑似废弃 -->
+<!-- 可以使用 save和dev之间不要有空格 -->
+npm install --save-dev packagename
+npm install --save-dev @types/packagename
 
-```ts
-npm install --save-dev @types/ws
+npm install --save --only=dev packagename
+npm install --save --only=dev @types/packagename
 ```
 
 ### 常用命令
