@@ -13,7 +13,7 @@
       "type": "node",
       "request": "launch",
       "name": "init",
-      // 程序主入口,ts文件就可以,会映射到js文件上
+      // 程序主入口,这样在ts文件断点就可以,会映射到js文件上
       "program": "${workspaceRoot}/src/index.ts",
       "args": [
         "-init"
