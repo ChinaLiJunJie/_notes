@@ -11,6 +11,8 @@
 <!-- 可以使用 save和dev之间不要有空格 -->
 npm install --save-dev packagename
 npm install --save-dev @types/packagename
+<!-- 只安装使用模块,不装开发模块 -->
+npm install --production
 
 npm install --save --only=dev packagename
 npm install --save --only=dev @types/packagename

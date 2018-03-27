@@ -12,3 +12,19 @@
 
 * 查看仓库状态
   git status
+
+* 查看远程仓库
+  git remote -v
+
+* 将本地库关联的远程库的commitid更新到最新
+  git fetch [仓库] [分支]
+
+* 将本地库更新到远程库的最新版本
+  git pull [仓库] [分支]
+
+* 合并峰值
+  git merge [仓库] [分支]
+
+### 资料
+
+[从主仓库更新代码至fork的仓库](https://blog.csdn.net/yaya1943/article/details/54582530)

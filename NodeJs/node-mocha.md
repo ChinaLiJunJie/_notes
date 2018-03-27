@@ -9,6 +9,7 @@
 ```bash
 npm install -save--dev mocha
 npm install -save--dev @types/mocha
+mocha test/**/*.test.js
 ```
 
 ### 试用体验
