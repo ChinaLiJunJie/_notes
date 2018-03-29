@@ -14,5 +14,9 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 
 秘钥保存在个人目录.ssh文件夹下
 
+```bash
+$ cd ~/.ssh
+```
+
 ## 将秘钥填写进github网站
 

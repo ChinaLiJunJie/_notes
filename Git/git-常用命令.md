@@ -4,7 +4,7 @@
 
   git remote add origin https://github.com/lijjLyb/liwork.git
 
-* 同步本地仓库
+* 推送本地仓库
 
   git push -u origin master
 
