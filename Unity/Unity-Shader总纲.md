@@ -1,0 +1,3 @@
+## Unity的Shader文件
+
+unity的shader是他自己规定的语言格式,在构建时,会根据目标平台生成对应的shader文件,从而达到跨平台的目的
