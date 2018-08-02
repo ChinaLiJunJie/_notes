@@ -7,10 +7,12 @@
 ### 如何使用
 
 ```bash
-npm install -save--dev mocha
-npm install -save--dev @types/mocha
+npm install -save --dev mocha
+npm install -save --dev @types/mocha
 mocha test/**/*.test.js
 ```
+
+测试代码写法参考仓库
 
 ### 试用体验
 
