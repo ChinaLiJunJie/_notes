@@ -4,6 +4,7 @@
 
 ### 例子
 
+[mobx 中文文档](https://cn.mobx.js.org/)
 [cocos-mobx-demo ( fork 自 oyb81076)](https://github.com/lijjLyb/cocos-mobx-demo)
 
 mobx 只是提供了一个数据绑定的运行框架,部分内容需要自己定义后使用
