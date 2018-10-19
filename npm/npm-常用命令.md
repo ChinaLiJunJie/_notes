@@ -30,3 +30,13 @@ npm install -g sss --save-dev
 // 查看全局位置
 npm root -g
 ```
+
+### install
+```bash
+// 两者等同
+$ npm i -S
+$ npm install --save
+
+// 不安装开发版本的包,仅安装包中运行版本的包
+$ npm i <package name> -S --production
+```
