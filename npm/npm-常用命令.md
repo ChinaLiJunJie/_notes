@@ -25,8 +25,6 @@ npm install --save --only=dev @types/packagename
 npm install -g npm
 // 安装包 -g 全局 --save 添加到package -dev 添加到开发包依赖
 npm install -g sss --save-dev
-// 查看全局安装包列表 -g 全局 --depth 0 显示依赖深度 0 为不显示依赖包
-npm list -g --depth 0
 // 查看全局位置
 npm root -g
 ```
@@ -39,4 +37,10 @@ $ npm install --save
 
 // 不安装开发版本的包,仅安装包中运行版本的包
 $ npm i <package name> -S --production
+```
+
+#### 查看全局安装包列表 -g 全局 --depth 0 显示依赖深度 0 为不显示依赖包
+
+``` bash
+npm list -g --depth 0
 ```
