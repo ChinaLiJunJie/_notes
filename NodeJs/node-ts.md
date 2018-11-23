@@ -1,4 +1,4 @@
-# 初始化
+#### 初始化
 
 使用`npm init`及`tsc --init`初始化
 
@@ -32,8 +32,19 @@ tsconfig
 }
 ```
 
-# tsd
+#### tsd
 使用npm`npm install --save-dev @types/ws@1.0.0`来获取对应包的tsd
 
-#nodemon
+#### nodemon
 使用nodemon来自动重启服务
+
+#### package.json 设置
+
+``` json
+{
+// 入口文件，指向的是 js 执行文件
+"main": "./dist/index",
+// 类型文件，指向的是 ts 的原文件
+"types": "./lib/index",
+}
+```
