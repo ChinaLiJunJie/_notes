@@ -12,6 +12,8 @@
 
 [vscode 插件](https://marketplace.visualstudio.com/items?itemName=maty.vscode-mocha-sidebar)
 
+[中文文档](https://segmentfault.com/a/1190000011362879)
+
 ### 如何使用
 
 ```bash
