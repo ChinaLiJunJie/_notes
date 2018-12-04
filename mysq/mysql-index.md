@@ -1,0 +1,1 @@
+[sequelpro 轻量客户端](https://sequelpro.com/)
