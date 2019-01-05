@@ -25,6 +25,14 @@
 * 合并峰值
   git merge [仓库] [分支]
 
+* 版本回退,只会将版本指针移到指定版本
+
+  git reset <HEAD>
+
+* 版本回退，会创建新的提交
+
+  git revert <HEAD>
+
 ### 资料
 
 [从主仓库更新代码至fork的仓库](https://blog.csdn.net/yaya1943/article/details/54582530)
