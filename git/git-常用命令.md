@@ -33,6 +33,10 @@
 
   git revert <HEAD>
 
+* 回退指定的文件到指定的版本
+
+  [csdn](https://blog.csdn.net/developer_biao/article/details/43971037)
+
 ### 资料
 
 [从主仓库更新代码至fork的仓库](https://blog.csdn.net/yaya1943/article/details/54582530)

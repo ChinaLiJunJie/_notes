@@ -1,0 +1,1 @@
+[官方脚手架命令创建 ts 项目](https://facebook.github.io/create-react-app/docs/adding-typescript)

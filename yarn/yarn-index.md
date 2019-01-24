@@ -6,6 +6,8 @@ yarn 是一个试图替代 npm 的 nodejs 模块管理器
 
 [中文文档](https://yarn.bootcss.com/)
 
+[中文文档2](https://yarn.org.cn/)
+
 ## 基本
 
 ### 全局模块安装位置
