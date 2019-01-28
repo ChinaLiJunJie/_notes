@@ -19,7 +19,9 @@ yarn 是一个试图替代 npm 的 nodejs 模块管理器
 ### 设置仓库为淘宝镜像
 
 ```
-$ yarn config set registry https://registry.npm.taobao.org
+yarn config set registry https://registry.npm.taobao.org --global
+
+yarn config set disturl https://npm.taobao.org/dist --global
 ```
 
 ### 全局
