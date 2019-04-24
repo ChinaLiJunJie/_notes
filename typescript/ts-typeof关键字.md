@@ -1,6 +1,6 @@
-### typeof
+## typeof
 
-#### 推断基本类型
+### 推断基本类型
 
 ```ts
 function log(val: string | number) {
@@ -13,7 +13,7 @@ function log(val: string | number) {
 }
 ```
 
-#### 获取字面量对象的类型
+### 获取字面量对象的类型
 
 ```ts
 const pics = {
@@ -38,4 +38,11 @@ function getRes(pic: typeof pics) {
 getRes(pics2);
 // false
 getRes(pics3);
+```
+
+### 获取数字类型
+
+```ts
+const NUMBER = 5;
+let newnum: typeof NUMBER; // 类型为 5
 ```
