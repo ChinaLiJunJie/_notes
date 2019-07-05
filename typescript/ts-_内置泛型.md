@@ -12,4 +12,9 @@ class example {
     } as Readonly<typeof constant>
 
 }
+
+// 这样写的支持抽象类
+function getComponent<T>(com: { prototype: T }) {}
+// 这样写的不支持抽象类，只能是可以实例化的类
+function getComponent<T>(com: new => T) {}
 ```

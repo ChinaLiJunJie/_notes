@@ -1,5 +1,10 @@
 # git常用命令
 
+* 设置用户名密码
+
+  git config --global user.name [username]
+  git config --global user.email [email]
+
 * 将本地仓库与远程仓库关联
 
   git remote add origin https://github.com/lijjLyb/liwork.git
