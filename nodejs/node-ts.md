@@ -33,6 +33,9 @@ tsconfig
 ```
 
 #### tsd
+
+[查询](http://microsoft.github.io/TypeSearch/)
+
 使用npm`npm install --save-dev @types/ws@1.0.0`来获取对应包的tsd
 
 #### nodemon

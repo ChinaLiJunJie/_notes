@@ -1,1 +1,1 @@
-[官网](http://shouldjs.github.io/)
+[官网](https://github.com/tj/should.js)

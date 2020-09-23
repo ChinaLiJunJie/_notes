@@ -19,7 +19,7 @@ type WORD = number;
 interface CppArray<type,length extends number> extends Array<type> {
     length: length
 }
-````
+```
 
 ### 例子
 

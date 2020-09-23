@@ -7,11 +7,10 @@
 ### 常用包
 
 ```bash
-<!-- 疑似废弃 -->
-<!-- 可以使用 save和dev之间不要有空格 -->
+// 可以使用 save和dev之间不要有空格
 npm install --save-dev packagename
 npm install --save-dev @types/packagename
-<!-- 只安装使用模块,不装开发模块 -->
+// 只安装使用模块,不装开发模块
 npm install --production
 
 npm install --save --only=dev packagename
@@ -24,7 +23,7 @@ npm install --save --only=dev @types/packagename
 // 升级自己
 npm install -g npm
 // 安装包 -g 全局 --save 添加到package -dev 添加到开发包依赖
-npm install -g sss --save-dev
+npm install -g packageName --save-dev
 // 查看全局位置
 npm root -g
 ```

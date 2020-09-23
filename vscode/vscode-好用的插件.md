@@ -11,3 +11,7 @@
     不同设备间同步 vscode 设置
 
     [同步 setting](http://www.imooc.com/article/251855)
+
+* hexdump for vscode
+
+    浏览二进制文件

@@ -33,4 +33,4 @@
 }
   ```
 
-* ts文件要设置 soursemapinline 将映射地图生成在ts文件里 或者 launch.json 中设置map文件的位置
+* ts文件要设置 inlineSourceMap 将映射地图生成在ts文件里 或者 launch.json 中设置map文件的位置
